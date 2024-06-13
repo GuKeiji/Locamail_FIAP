@@ -25,16 +25,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import br.com.fiap.locamail.components.CircleWithLetter
+import br.com.fiap.locamail.repository.FilterRepository
+import kotlinx.coroutines.launch
 
 @Composable
 fun CreateFilterScreen(navController: NavController) {
+    val context = LocalContext.current
+    val filterRepository = FilterRepository(context)
+    val coroutineScope = rememberCoroutineScope()
+
     var nomeFiltro by remember { mutableStateOf("") };
     var filtrarKeywords by remember { mutableStateOf("") };
 
@@ -90,7 +98,9 @@ fun CreateFilterScreen(navController: NavController) {
                     Button(
                         onClick = {
                             if (nomeFiltro.isNotBlank() && filtrarKeywords.isNotBlank()) {
-//                                onCreateFilter(nomeFiltro, filtrarKeywords)
+                                coroutineScope.launch {
+                                    filterRepository.addFilter("$nomeFiltro: $filtrarKeywords")
+                                }
                             }
                         },
                         modifier = Modifier.align(Alignment.End)
