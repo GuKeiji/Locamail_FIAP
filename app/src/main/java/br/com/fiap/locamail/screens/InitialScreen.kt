@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import br.com.fiap.locamail.components.CircleWithLetter
+import br.com.fiap.locamail.components.DrawerItem
 
 @Composable
 fun InitialScreen(navController: NavController) {
@@ -47,7 +48,7 @@ fun InitialScreen(navController: NavController) {
         mutableStateOf(false)
     }
 
-    val withAnim by animateDpAsState(targetValue = if(isExpanded) 200.dp else 0.dp)
+    val withAnim by animateDpAsState(targetValue = if (isExpanded) 200.dp else 0.dp)
 
     Scaffold(content = { padding ->
         Box(modifier = Modifier.padding(padding)) {
@@ -95,7 +96,10 @@ fun InitialScreen(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(100.dp)
-                                .background(color = Color.Black),
+                                .background(color = Color.Black)
+                                .clickable {
+                                    navController.navigate("email/${"Você ganhou FRETE GRÁTIS"}/${"Promoção exclusiva para você"}/${"AliExpress"}")
+                                },
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceAround
 
@@ -129,7 +133,10 @@ fun InitialScreen(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(100.dp)
-                                .background(color = Color.Black),
+                                .background(color = Color.Black)
+                                .clickable {
+                                    navController.navigate("email/${"Nova forma de envio de boleto"}/${"Você receberá seu boleto da mensalidade desse mês de forma online!"}/${"FIAP"}")
+                                },
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceAround
 
@@ -163,7 +170,10 @@ fun InitialScreen(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(100.dp)
-                                .background(color = Color.Black),
+                                .background(color = Color.Black)
+                                .clickable {
+                                    navController.navigate("email/${"Recibos da Uber"}/${"Sua viagem de ontem à noite, com o motorista Rodinei foi no valor de R$29,99"}/${"Uber"}")
+                                },
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceAround
 
@@ -197,7 +207,10 @@ fun InitialScreen(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(100.dp)
-                                .background(color = Color.Black),
+                                .background(color = Color.Black)
+                                .clickable {
+                                    navController.navigate("email/${"É HOJE 6.6 LIQUIDAÇÃO"}/${"CELULARES E DISPOSITIVOS ELETRÔNICOS POR PREÇOS IMPERDÍVEIS! É SÓ HOJE NA SHOPEE"}/${"Shopee"}")
+                                },
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceAround
 
@@ -225,271 +238,6 @@ fun InitialScreen(navController: NavController) {
                                 .fillMaxWidth()
                                 .height(1.dp)
                         )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "A",
-                                circleColor = Color.Blue,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "AliExpress")
-                                Text(text = "Você ganhou FRETE GRÁTIS")
-                                Text(text = "Promoção exclusiva para você")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "F",
-                                circleColor = Color.Yellow,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "FIAP")
-                                Text(text = "Nova forma de envio de boleto")
-                                Text(text = "Você recebe seu boleto...")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "U",
-                                circleColor = Color.Red,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "Uber")
-                                Text(text = "Recibos da Uber")
-                                Text(text = "Sua viagem de ontem à noite...")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "S",
-                                circleColor = Color.Cyan,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "Shopee")
-                                Text(text = "É HOJE 6.6 LIQUIDAÇÃO")
-                                Text(text = "CELULARES E DISPOSITIVOS...")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "A",
-                                circleColor = Color.Blue,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "AliExpress")
-                                Text(text = "Você ganhou FRETE GRÁTIS")
-                                Text(text = "Promoção exclusiva para você")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "F",
-                                circleColor = Color.Yellow,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "FIAP")
-                                Text(text = "Nova forma de envio de boleto")
-                                Text(text = "Você recebe seu boleto...")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "U",
-                                circleColor = Color.Red,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "Uber")
-                                Text(text = "Recibos da Uber")
-                                Text(text = "Sua viagem de ontem à noite...")
-                            }
-                            Text(text = "Ontem")
-                        }
-                        Divider(
-                            color = Color.Gray,
-                            thickness = 1.dp,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(color = Color.Black),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceAround
-
-                        ) {
-                            CircleWithLetter(
-                                letter = "S",
-                                circleColor = Color.Cyan,
-                                textColor = Color.Gray,
-                                size = 70
-                            )
-                            Column(
-                                modifier = Modifier
-                                    .defaultMinSize(minWidth = 200.dp)
-                            ) {
-                                Text(text = "Shopee")
-                                Text(text = "É HOJE 6.6 LIQUIDAÇÃO")
-                                Text(text = "CELULARES E DISPOSITIVOS...")
-                            }
-                            Text(text = "Ontem")
-                        }
                     }
                 }
             }
@@ -514,26 +262,3 @@ fun InitialScreen(navController: NavController) {
 
 }
 
-@Composable
-fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navController: NavController) {
-    if (expanded) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 10.dp)
-                .clickable { navController.navigate("caixa") },
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                icon,
-                contentDescription = "Icon de menu",
-                tint = Color.White
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-            Text(
-                text = title,
-                color = Color.White
-            )
-        }
-    }
-}
