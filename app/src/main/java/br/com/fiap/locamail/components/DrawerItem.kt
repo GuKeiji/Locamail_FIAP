@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +33,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navController: NavController) {
     val context = LocalContext.current
-    val filterRepository = remember { FilterRepository(context) }
+    val filterRepository = remember { FilterRepository.getInstance(context) }
     val coroutineScope = rememberCoroutineScope()
 
     var filters by remember { mutableStateOf(setOf<String>()) }
@@ -92,7 +93,7 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        Icons.Filled.Add,
+                        Icons.Filled.Email,
                         contentDescription = "Icon",
                         tint = Color.White
                     )
@@ -103,5 +104,6 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
                     )
                 }
             }
-        }    }
+        }
+    }
 }

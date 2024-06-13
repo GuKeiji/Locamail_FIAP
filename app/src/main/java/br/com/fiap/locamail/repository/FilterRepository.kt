@@ -8,10 +8,19 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class FilterRepository(private val context: Context) {
+class FilterRepository private constructor(private val context: Context) {
     private val Context.dataStore by preferencesDataStore("filters")
 
     companion object {
+        @Volatile
+        private var INSTANCE: FilterRepository? = null
+
+        fun getInstance(context: Context): FilterRepository {
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: FilterRepository(context.applicationContext).also { INSTANCE = it }
+            }
+        }
+
         val FILTERS_KEY = stringSetPreferencesKey("filters_key")
     }
 

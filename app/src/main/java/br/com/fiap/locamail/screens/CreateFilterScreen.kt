@@ -40,7 +40,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun CreateFilterScreen(navController: NavController) {
     val context = LocalContext.current
-    val filterRepository = FilterRepository(context)
+    val filterRepository = FilterRepository.getInstance(context)
     val coroutineScope = rememberCoroutineScope()
 
     var nomeFiltro by remember { mutableStateOf("") };
