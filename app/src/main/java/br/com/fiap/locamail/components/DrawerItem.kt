@@ -82,6 +82,24 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
                 color = Color.White
             )
         }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
+                .clickable { navController.navigate("vagas") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.Email,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Vagas",
+                color = Color.White
+            )
+        }
         LazyColumn {
             items(filters.toList()) { filter ->
                 val filterName = filter.split(":")[0]
@@ -89,7 +107,7 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp)
-                        .clickable { navController.navigate("criar") },
+                        .clickable { navController.navigate("default") },
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(

@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import br.com.fiap.locamail.components.CircleWithLetter
 import br.com.fiap.locamail.repository.FilterRepository
@@ -70,7 +71,9 @@ fun CreateFilterScreen(navController: NavController) {
                     )
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
-                        text = "Criar novo filtro"
+                        text = "Criar novo filtro",
+                        fontSize = 25.sp,
+                        color = Color.White
                     )
                 }
                 Column(
@@ -100,12 +103,17 @@ fun CreateFilterScreen(navController: NavController) {
                             if (nomeFiltro.isNotBlank() && filtrarKeywords.isNotBlank()) {
                                 coroutineScope.launch {
                                     filterRepository.addFilter("$nomeFiltro: $filtrarKeywords")
+                                    navController.navigate("caixa")
                                 }
                             }
                         },
-                        modifier = Modifier.align(Alignment.End)
+                        modifier = Modifier
+                            .width(200.dp)
                     ) {
-                        Text("Criar")
+                        Text(
+                            text = "CRIAR",
+                            fontSize = 20.sp
+                        )
                     }
                 }
             }

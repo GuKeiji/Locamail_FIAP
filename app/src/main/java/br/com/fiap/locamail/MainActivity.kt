@@ -17,7 +17,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import br.com.fiap.locamail.screens.CreateFilterScreen
+import br.com.fiap.locamail.screens.FilterVagasScreen
 import br.com.fiap.locamail.screens.InitialScreen
+import br.com.fiap.locamail.screens.DefaultFilterScreen
 import br.com.fiap.locamail.screens.ShowEmail
 import br.com.fiap.locamail.ui.theme.LocamailTheme
 
@@ -36,6 +38,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = "criar"){
                             CreateFilterScreen(navController)
+                        }
+                        composable(route = "vagas"){
+                            FilterVagasScreen(navController)
+                        }
+                        composable(route = "default"){
+                            DefaultFilterScreen(navController)
                         }
                         composable(
                             route = "email/{title}/{content}/{sender}",
