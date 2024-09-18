@@ -16,10 +16,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import br.com.fiap.locamail.screens.CalendarScreen
 import br.com.fiap.locamail.screens.CreateFilterScreen
+import br.com.fiap.locamail.screens.DashboardScreen
 import br.com.fiap.locamail.screens.FilterVagasScreen
 import br.com.fiap.locamail.screens.InitialScreen
 import br.com.fiap.locamail.screens.DefaultFilterScreen
+import br.com.fiap.locamail.screens.LoginScreen
+import br.com.fiap.locamail.screens.SendEmailScreen
 import br.com.fiap.locamail.screens.ShowEmail
 import br.com.fiap.locamail.ui.theme.LocamailTheme
 
@@ -32,9 +36,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "caixa"){
+                    NavHost(navController = navController, startDestination = "login"){
                         composable(route = "caixa"){
                             InitialScreen(navController)
+                        }
+                        composable(route = "login"){
+                            LoginScreen(navController)
+                        }
+                        composable(route = "send"){
+                            SendEmailScreen(navController)
                         }
                         composable(route = "criar"){
                             CreateFilterScreen(navController)
@@ -44,6 +54,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = "default"){
                             DefaultFilterScreen(navController)
+                        }
+                        composable(route = "dash"){
+                            DashboardScreen(navController)
+                        }
+                        composable(route = "calendar"){
+                            CalendarScreen(navController)
                         }
                         composable(
                             route = "email/{title}/{content}/{sender}",

@@ -1,3 +1,4 @@
+
 package br.com.fiap.locamail.components
 
 import androidx.compose.foundation.clickable
@@ -10,7 +11,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -86,6 +91,24 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 10.dp)
+                .clickable { navController.navigate("send") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.Send,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Enviar email",
+                color = Color.White
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
                 .clickable { navController.navigate("vagas") },
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -97,6 +120,78 @@ fun DrawerItem(icon: ImageVector, title: String, expanded: Boolean, navControlle
             Spacer(modifier = Modifier.width(10.dp))
             Text(
                 text = "Vagas",
+                color = Color.White
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
+                .clickable { navController.navigate("dash") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.Info,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Dashboard",
+                color = Color.White
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
+                .clickable { navController.navigate("calendar") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.DateRange,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Calendário",
+                color = Color.White
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
+                .clickable { navController.navigate("calendar") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.Email,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Spam",
+                color = Color.White
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 10.dp)
+                .clickable { navController.navigate("login") },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Filled.ExitToApp,
+                contentDescription = "Icon",
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "LogOut",
                 color = Color.White
             )
         }

@@ -12,7 +12,7 @@ class FilterRepository private constructor(private val context: Context) {
     private val Context.dataStore by preferencesDataStore("filters")
 
     companion object {
-        @Volatile
+        @Volatile   
         private var INSTANCE: FilterRepository? = null
 
         fun getInstance(context: Context): FilterRepository {
